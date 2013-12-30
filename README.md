@@ -1,24 +1,28 @@
 # Phantomherd
 
-TODO: Write a gem description
+Phantomherd provides a simple way to launch multiple PhantomJS instances in parallel to run a simple load test on your site.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install via RubyGems:
 
-    gem 'phantomherd'
+    `$ gem install phantomherd`
 
-And then execute:
+You'll also need CasperJS, which you can install via Homebrew:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install phantomherd
+    `$brew install casperjs --devel`
 
 ## Usage
 
-TODO: Write usage instructions here
+To run a basic load test, just supply the name of a CasperJS script to run:
+
+    `phantomherd test.coffee`
+
+This will run the script in two parallel PhantomJS instances and report the results.
+
+You can specify a number of samples with the `-s` flag, and the level of concurrency with the `-c` flag.
+
+    `phantomherd -c 25 -s 100 test.coffee`
 
 ## Contributing
 
