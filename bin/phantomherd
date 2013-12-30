@@ -4,12 +4,20 @@ require 'phantomherd'
 require 'trollop'
 
 opts = Trollop::options do
+  banner <<-EOB
+phantomherd: simple load testing using EventMachine and PhantomJS/CasperJS
+
+Usage:
+      phantomherd [options] <CasperJS script filename>
+where [options] are:
+EOB
   opt :sample_count, "Number of times to run CasperJS script", :default => 2
   opt :concurrency,  "Number of PhantomJS instances to run concurrently", :default => 2
 end
 
-Trollop::die "Must specify a CasperJS script to run" if ARGV[0].nil?
 Trollop::die "CasperJS executable not found.\n(Install via Homebrew: `brew install casperjs --devel`)" if `which casperjs` == ""
+Trollop::die "Must specify a CasperJS script to run" if ARGV[0].nil?
+Trollop::die "Cannot find file specified: #{ARGV[0]}" unless File.exist?(ARGV[0])
 
 opts[:casper_script] = ARGV[0]
 

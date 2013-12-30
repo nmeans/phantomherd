@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nickolas Means"]
   spec.email         = ["nick@heliumsyndicate.com"]
   spec.description   = %q{Simple load testing with EventMachine and PhantomJS/CasperJS}
-  spec.summary       = spec.summary
+  spec.summary       = spec.description
   spec.homepage      = "https://github.com/nmeans/phantomherd"
   spec.license       = "MIT"
 
