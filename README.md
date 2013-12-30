@@ -20,9 +20,14 @@ To run a basic load test, just supply the name of a CasperJS script to run:
 
 This will run the specified CasperJS script once in two parallel PhantomJS instances by default and report the results.
 
+### Parameters
+
 You can specify sample size with the `-s` flag, and level of concurrency with the `-c` flag.
 
     $ phantomherd -s 100 -c 25 test.coffee
+    
+This will run a total of 100 runs through the specified CasperJS script across 25 concurrent PhantomJS instances.
+    
 
 ## Contributing
 
