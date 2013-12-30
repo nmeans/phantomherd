@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'phantomherd'
+require 'trollop'
+
+opts = Trollop::options do
+  opt :sample_count, "Number of times to run CasperJS script", :default => 2
+  opt :concurrency,  "Number of PhantomJS instances to run concurrently", :default => 2
+end
+
+Trollop::die "Must specify a CasperJS script to run" if ARGV[0].nil?
+Trollop::die "CasperJS executable not found.\n(Install via Homebrew: `brew install casperjs --devel`)" if `which casperjs` == ""
+
+opts[:casper_script] = ARGV[0]
+
+Phantomherd::Runner.new(opts).run
